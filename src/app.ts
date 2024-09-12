@@ -10,6 +10,7 @@ import { IConfigService } from './config/config.service.interface';
 import { IExeptionFilter } from './errors/exeption.filter.interface';
 import { UserController } from './users/users.controller';
 import { IMongoService } from './database';
+import { UsersRepository } from './users/users.repository';
 
 @injectable()
 export class App {
@@ -20,6 +21,7 @@ export class App {
 	constructor(
 		@inject(TYPES.ILogger) private logger: ILogger,
 		@inject(TYPES.UserController) private userController: UserController,
+		@inject(TYPES.UsersRepository) private usersRepository: UsersRepository,
 		@inject(TYPES.ExeptionFilter) private exeptionFilter: IExeptionFilter,
 		@inject(TYPES.ConfigService) private configService: IConfigService,
 		@inject(TYPES.MongoService) private mongoService: IMongoService,
