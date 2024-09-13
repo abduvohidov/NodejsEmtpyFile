@@ -1,7 +1,7 @@
 {
-	"name": "dashboard-api",
+	"name": "db",
 	"version": "1.0.0",
-	"description": "API для учебного проекта 4-NodeJS",
+	"description": "API для проекта db",
 	"main": "index.js",
 	"type": "commonjs",
 	"scripts": {
@@ -13,7 +13,7 @@
 		"build": "tsc",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"author": "Anton Larichev",
+	"author": "Abdulloh Abduvohidov",
 	"license": "ISC",
 	"dependencies": {
 		"bcryptjs": "^2.4.3",
