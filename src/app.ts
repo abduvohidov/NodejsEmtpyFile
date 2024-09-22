@@ -7,8 +7,6 @@ import { json } from 'body-parser';
 import { IConfigService } from './config/config.service.interface';
 import { IExeptionFilter } from './errors/exeption.filter.interface';
 import { IMongoService } from './database';
-import { UserController, UsersRepository } from './modules/users';
-import { CategoryController, CategoryRepository } from './modules/categories';
 import 'reflect-metadata';
 
 @injectable()
@@ -22,10 +20,6 @@ export class App {
 		@inject(TYPES.ExeptionFilter) private exeptionFilter: IExeptionFilter,
 		@inject(TYPES.ConfigService) private configService: IConfigService,
 		@inject(TYPES.MongoService) private mongoService: IMongoService,
-		@inject(TYPES.UserController) private userController: UserController,
-		@inject(TYPES.UsersRepository) private usersRepository: UsersRepository,
-		@inject(TYPES.CategoryController) private categoryController: CategoryController,
-		@inject(TYPES.CategoryRepository) private categoriesRepository: CategoryRepository,
 	) {
 		this.app = express();
 		this.port = this.configService.get('PORT') || 9000;
@@ -36,8 +30,7 @@ export class App {
 	}
 
 	useRoutes(): void {
-		this.app.use('/users', this.userController.router);
-		this.app.use('/categories', this.categoryController.router);
+		this.app.use('/', () => alert('empty file started!'));
 	}
 
 	useExeptionFilters(): void {
