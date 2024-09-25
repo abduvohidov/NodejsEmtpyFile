@@ -1,4 +1,4 @@
-import express, { Express } from 'express';
+import express, { Express, Response } from 'express';
 import { Server } from 'http';
 import { inject, injectable } from 'inversify';
 import { ILogger } from './logger/logger.interface';
@@ -30,7 +30,7 @@ export class App {
 	}
 
 	useRoutes(): void {
-		this.app.use('/', () => alert('empty file started!'));
+		this.app.use('/', (_, res: Response) => res.send('empty file started!'));
 	}
 
 	useExeptionFilters(): void {
